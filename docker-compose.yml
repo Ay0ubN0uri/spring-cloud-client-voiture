@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  eureka-server:
+    image: eureka-server
+    container_name: eureka-server-app
+    build:
+      context: ./spring-eureka
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8761"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    restart: always
+
+  gateway:
+    image: gateway
+    container_name: gateway-app
+    build:
+      context: ./spring-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    # depends_on:
+    #   - eureka-server
+    restart: always
+
+  microservice-client:
+    image: microservice-client
+    container_name: microservice-client-app
+    build:
+      context: ./spring-microservice-client
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    # depends_on:
+    #   - eureka-server
+    restart: always
+
+  microservice-voiture:
+    image: microservice-voiture
+    container_name: microservice-voiture-app
+    build:
+      context: ./spring-microservice-voiture
+      dockerfile: Dockerfile
+    ports:
+      - "8089:8089"
+    # depends_on:
+    #   - eureka-server
+    restart: always
