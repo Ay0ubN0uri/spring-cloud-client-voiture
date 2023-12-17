@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.a00n.springmicroservicevoiture.entities.Voiture;
 import com.a00n.springmicroservicevoiture.repositories.VoitureRepository;
 import com.a00n.springmicroservicevoiture.services.ClientService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class VoitureController {
@@ -34,4 +35,15 @@ public class VoitureController {
                     .body("Error fetching voitures: " + e.getMessage());
         }
     }
+
+    @GetMapping("/clients")
+    public ResponseEntity<Object> findAllClients() {
+        try {
+            return ResponseEntity.ok(clientService.clients());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error fetching clients: " + e.getMessage());
+        }
+    }
+
 }

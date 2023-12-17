@@ -1,0 +1,44 @@
+{
+    "configurations": [{
+            "type": "java",
+            "name": "Spring Boot-SpringEurekaApplication<spring-eureka>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.a00n.springeureka.SpringEurekaApplication",
+            "projectName": "spring-eureka",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringGatewayApplication<spring-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.a00n.springgateway.SpringGatewayApplication",
+            "projectName": "spring-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=43617 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-gateway"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringMicroserviceClientApplication<spring-microservice-client>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.a00n.springmicroserviceclient.SpringMicroserviceClientApplication",
+            "projectName": "spring-microservice-client",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringMicroserviceVoitureApplication<spring-microservice-voiture>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.a00n.springmicroservicevoiture.SpringMicroserviceVoitureApplication",
+            "projectName": "spring-microservice-voiture",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
